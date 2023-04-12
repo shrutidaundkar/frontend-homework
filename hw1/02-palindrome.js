@@ -8,7 +8,7 @@ function handleInput(){
         let reverseInput = parseInt(String(elem.value).split('').reverse().join(''));
         if( input == reverseInput){
             resultText.style.color = 'green';
-            resultText.innerHTML = 'Yes. this is a palindrome!';
+            resultText.innerHTML = 'Yes. This is a palindrome!';
         }else{
             resultText.style.color = 'red';
             resultText.innerHTML = 'No. Try again.'
