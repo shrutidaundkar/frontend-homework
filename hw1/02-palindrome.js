@@ -2,7 +2,7 @@ const elem = document.querySelector("input");
 const resultElement = document.querySelector("#resultElement");
 elem.addEventListener("input", handleInput);
 
-function handleInput() {
+const handleInput = () => {
   const input = parseInt(elem.value);
   if (input >= 0) {
     const reverseInput = parseInt(
@@ -18,10 +18,10 @@ function handleInput() {
   } else {
     updateResultElement("text-black", "Please enter a number first!");
   }
-}
+};
 
-function updateResultElement(resultColorClass, resultTextString) {
+const updateResultElement = (resultColorClass, resultTextString) => {
   resultElement.classList = "";
   resultElement.classList.add(resultColorClass);
   resultElement.textContent = resultTextString;
-}
+};
