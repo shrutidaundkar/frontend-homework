@@ -1,6 +1,5 @@
 const elem = document.querySelector("input");
 const resultElement = document.querySelector("#resultElement");
-elem.addEventListener("input", handleInput);
 
 const handleInput = () => {
   const input = parseInt(elem.value);
@@ -25,3 +24,4 @@ const updateResultElement = (resultColorClass, resultTextString) => {
   resultElement.classList.add(resultColorClass);
   resultElement.textContent = resultTextString;
 };
+elem.addEventListener("input", handleInput);
