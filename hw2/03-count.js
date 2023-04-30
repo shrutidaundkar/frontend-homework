@@ -5,7 +5,7 @@ const textContainer = document.querySelector("#textContainer");
 inputWord.addEventListener("keyup", () => {
   const searchText = inputWord.value.trim();
   const textContent = textContainer.textContent;
-  if (searchText != "") {
+  if (searchText !== "") {
     const wordsArray = textContent.split(" ");
     const highlightedWordsArray = wordsArray.map((word) => {
       const trimmedWord = word.replace(/[^\w\s]/gi, "");
