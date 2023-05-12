@@ -114,6 +114,7 @@ function Houses() {
         },
       },
     },
+    responsive: true,
   };
   return (
     <div className="doughnutContainer">

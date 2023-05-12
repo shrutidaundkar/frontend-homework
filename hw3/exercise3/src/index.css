@@ -26,13 +26,16 @@ nav {
   margin: 0 auto;
   background-color: var(--cyan);
   padding: 0%;
+  width: 100%;
 }
 nav h1 {
   display: inline-block;
   text-decoration: none;
-  color: var(--white);
-  font-size: large;
-  font-weight: lighter;
+  color: var(--blue);
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff,
+    -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+  font-size: xx-large;
+  font-family: cursive;
   margin: 0 10px 0 0;
 }
 nav a {
@@ -41,15 +44,17 @@ nav a {
   padding: 5px;
   margin: auto;
   color: var(--white);
-  font-size: large;
+  font-size: x-large;
   font-weight: bolder;
 }
 nav a.active {
   text-decoration: underline;
+  color: var(--blue);
 }
 .homeContainer {
-  min-height: 100vh;
-  line-height: 100vh;
+  align-items: center;
+  vertical-align: middle;
+  height: 80%;
 }
 .homeContainer span {
   vertical-align: middle;
@@ -60,4 +65,101 @@ nav a.active {
   margin: auto;
   max-width: 600px;
   padding: 1% 5% 1% 5%;
+}
+.container {
+  margin-top: 2%;
+}
+.searchInput {
+  width: 80%;
+  text-align: left;
+  font-size: large;
+  border: var(--cyan) solid;
+}
+
+#characters {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-around;
+}
+.card {
+  flex: 1;
+  background-color: var(--cyan);
+  border: 0 none;
+  font-weight: bold;
+}
+.card:hover {
+  background-color: var(--blue);
+}
+
+.card-body {
+  padding: 0%;
+}
+@media screen {
+  .nav {
+    width: 100%;
+  }
+  nav h1 {
+    font-size: large;
+  }
+  nav a {
+    font-size: medium;
+  }
+  #characters {
+    width: 100%;
+    padding: 20px;
+  }
+  .card {
+    min-width: 160px;
+    max-width: 170px;
+    min-height: 250px;
+    padding: 10px;
+  }
+  .card-img {
+    height: 150px;
+    width: 120px;
+    display: block;
+    margin: auto;
+  }
+  .card span {
+    font-weight: bolder;
+    font-size: large;
+  }
+  .card p {
+    font-weight: bold;
+    font-size: small;
+  }
+  .searchInput {
+    padding: 5px;
+    height: 1rem;
+    margin-left: 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #characters {
+    width: 100%;
+    padding: 20px;
+  }
+  .card {
+    min-width: 290px;
+    padding: 20px;
+    margin: 1rem;
+    align-content: center;
+  }
+  .card-img {
+    height: 290px;
+    width: 260px;
+    display: block;
+    margin: auto;
+  }
+  .card span {
+    font-weight: bolder;
+    font-size: x-large;
+  }
+
+  .searchInput {
+    padding: 10px;
+    height: 2rem;
+    margin-left: 20px;
+  }
 }
