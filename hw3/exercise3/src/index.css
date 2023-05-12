@@ -56,3 +56,8 @@ nav a.active {
   font-size: xx-large;
   font-weight: bolder;
 }
+.doughnutContainer {
+  margin: auto;
+  max-width: 600px;
+  padding: 1% 5% 1% 5%;
+}

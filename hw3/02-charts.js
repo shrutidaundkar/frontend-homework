@@ -63,7 +63,7 @@ const renderChart = (houseLabels, houseValues) => {
       labels: houseLabels,
       datasets: [
         {
-          label: "My First Dataset",
+          label: "House of Dragons",
           data: houseValues,
           backgroundColor: backgroundColors,
           borderColor: borderColors,
