@@ -1,17 +1,18 @@
 // url for the Thrones API
-const url = "https://thronesapi.com/api/v2/Characters";
+const url = "https://thronesapi.com/api/v2/Characters/rgdr";
 
-const charContainer = document.querySelector("#characters");
+const charContainer = document.querySelector("#characters-container");
+charContainer.classList.add("card-deck");
+const errorMessage = document.createElement("li");
 const printCharacters = async function () {
   try {
     const response = await fetch(url);
     const jsonData = await response.json();
-
-    charContainer.classList.add("card-deck");
+    errorMessage.remove();
     jsonData.forEach((element) => {
       const { fullName, title, family, imageUrl } = element;
       //card
-      const charDiv = document.createElement("div");
+      const charDiv = document.createElement("li");
       charDiv.classList.add("card");
 
       //card image
@@ -22,11 +23,12 @@ const printCharacters = async function () {
       if (family.includes("House")) {
         charImage.alt = `${fullName} of ${family}`;
       } else {
-        family.includes("Free") |
-        family.includes("Unk") |
-        family.includes("None")
-          ? (charImage.alt = `${fullName} - ${title}`)
-          : (charImage.alt = `${fullName} of House ${family}`);
+        charImage.alt =
+          family.includes("Free") ||
+          family.includes("Unk") ||
+          family.includes("None")
+            ? `${fullName} - ${title}`
+            : `${fullName} of House ${family}`;
       }
       //card-body div
       const charNameDiv = document.createElement("div");
@@ -52,7 +54,6 @@ const printCharacters = async function () {
       charContainer.appendChild(charDiv);
     });
   } catch (err) {
-    const errorMessage = document.createElement("span");
     errorMessage.classList.add("text-center");
     errorMessage.classList.add("h3");
     errorMessage.innerHTML = "No information found!";

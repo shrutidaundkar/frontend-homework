@@ -30,15 +30,15 @@ const borderColors = [
 const url = "https://thronesapi.com/api/v2/Characters";
 const donutChart = document.querySelector(".donut-chart");
 let housesObject = {};
-
+const errorMessage = document.createElement("h2");
 function cleanfamilyName(family) {
   family = family.replace(/House/, "").trim();
-  if (family.includes("Lanister")) family = "Lannister";
-  else if (family.includes("None")) family = "Unknown";
-  else if (family.includes("Unkown")) family = "Unknown";
-  else if (family.includes("Targaryan")) family = "Targaryen";
-  else if (family.includes("Targaryn")) family = "Targaryen";
-  else if (family === "") family = "Unknown";
+  if (family.includes("Lanister")) return "Lannister";
+  else if (family.includes("None")) return "Unknown";
+  else if (family.includes("Unkown")) return "Unknown";
+  else if (family.includes("Targaryan")) return "Targaryen";
+  else if (family.includes("Targaryn")) return "Targaryen";
+  else if (family === "") return "Unknown";
   return family;
 }
 function groupHouses(housesObject) {
@@ -46,7 +46,7 @@ function groupHouses(housesObject) {
   for (const key of Object.keys(housesObject)) {
     if (housesObject[key] === 1) {
       if ("Others" in newHouseObject) {
-        newHouseObject["Others"] = newHouseObject["Others"] + 1;
+        newHouseObject["Others"] += 1;
       } else {
         newHouseObject["Others"] = 1;
       }
@@ -93,11 +93,10 @@ const calculateHouseMembers = async function () {
     const response = await fetch(url);
     const jsonData = await response.json();
     jsonData.forEach((element) => {
-      let { family } = element;
-      family = cleanfamilyName(family);
+      const family = cleanfamilyName(element.family);
 
       if (family in housesObject) {
-        housesObject[family] = housesObject[family] + 1;
+        housesObject[family] += 1;
       } else {
         housesObject[family] = 1;
       }
@@ -107,7 +106,7 @@ const calculateHouseMembers = async function () {
   } catch (err) {
     const chartContainer = document.querySelector(".chartContainer");
     donutChart.remove();
-    const errorMessage = document.createElement("h2");
+
     errorMessage.classList.add("text-center");
     errorMessage.innerHTML =
       "Error: Unable to fetch Data from the URL information found!";

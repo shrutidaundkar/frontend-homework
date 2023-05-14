@@ -1,6 +1,6 @@
-.body {
+body {
   background-color: var(--cyan);
-  padding: 5rem;
+  /* padding: 5rem; */
 }
 
 h1 {
@@ -8,9 +8,10 @@ h1 {
 }
 
 .donut-chart {
-  padding: 2rem;
+  /* padding: 2rem; */
   border-radius: 0.8rem;
   background-color: var(--white);
-  width: 300px;
-  height: 300px;
+  /* min-width: 300px;
+  min-height: 300px; */
+  max-height: 500px;
 }
