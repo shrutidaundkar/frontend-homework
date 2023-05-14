@@ -27,6 +27,11 @@ nav {
   background-color: var(--cyan);
   padding: 0%;
   width: 100%;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
 }
 nav h1 {
   display: inline-block;
@@ -51,17 +56,28 @@ nav a.active {
   text-decoration: underline;
   color: var(--blue);
 }
-.homeContainer {
+.container-home {
   align-items: center;
   vertical-align: middle;
-  height: 80%;
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url("./GOT.jpg");
 }
-.homeContainer span {
+.container-home-text {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  font-size: 50px;
+  color: white;
   vertical-align: middle;
   font-size: xx-large;
   font-weight: bolder;
 }
-.doughnutContainer {
+
+.container-donut-chart {
   margin: auto;
   max-width: 600px;
   padding: 1% 5% 1% 5%;
@@ -76,7 +92,7 @@ nav a.active {
   border: var(--cyan) solid;
 }
 
-#characters {
+#container-characters {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
@@ -105,7 +121,7 @@ nav a.active {
   nav a {
     font-size: medium;
   }
-  #characters {
+  #container-characters {
     width: 100%;
     padding: 20px;
   }
@@ -136,7 +152,7 @@ nav a.active {
   }
 }
 @media screen and (min-width: 1024px) {
-  #characters {
+  #container-characters {
     width: 100%;
     padding: 20px;
   }

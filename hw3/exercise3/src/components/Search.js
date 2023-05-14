@@ -25,7 +25,7 @@ function Search() {
         onChange={(e) => setSearchedChar(e.target.value)}
       />
 
-      <section id="characters" class="mx-auto">
+      <section id="container-characters" class="mx-auto">
         {charList
           .filter((item) => {
             if (searchedChar === "") {
@@ -37,7 +37,7 @@ function Search() {
             }
           })
           .map((item) => {
-            let altText = item.fullName + " of " + item.family;
+            let altText = `${item.fullName} of ${item.family}`;
             return (
               <div class="card">
                 <div className="card-body">

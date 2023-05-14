@@ -1,7 +1,7 @@
 function Home() {
   return (
-    <div className="homeContainer m-auto">
-      <span>Welcome to House of Dragons!</span>
+    <div className="container-home m-auto">
+      <span className="container-home-text">Welcome to House of Dragons!</span>
     </div>
   );
 }

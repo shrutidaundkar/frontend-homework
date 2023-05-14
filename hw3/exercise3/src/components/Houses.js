@@ -33,20 +33,20 @@ const url = "https://thronesapi.com/api/v2/Characters";
 
 function cleanfamilyName(family) {
   family = family.replace(/House/, "").trim();
-  if (family.includes("Lanister")) family = "Lannister";
-  else if (family.includes("None")) family = "Unknown";
-  else if (family.includes("Unkown")) family = "Unknown";
-  else if (family.includes("Targaryan")) family = "Targaryen";
-  else if (family.includes("Targaryn")) family = "Targaryen";
-  else if (family === "") family = "Unknown";
+  if (family.includes("Lanister")) return "Lannister";
+  else if (family.includes("None")) return "Unknown";
+  else if (family.includes("Unkown")) return "Unknown";
+  else if (family.includes("Targaryan")) return "Targaryen";
+  else if (family.includes("Targaryn")) return "Targaryen";
+  else if (family === "") return "Unknown";
   return family;
 }
 function groupHouses(housesObject) {
-  let newHouseObject = {};
+  const newHouseObject = {};
   for (const key of Object.keys(housesObject)) {
     if (housesObject[key] === 1) {
       if ("Others" in newHouseObject) {
-        newHouseObject["Others"] = newHouseObject["Others"] + 1;
+        newHouseObject["Others"] += 1;
       } else {
         newHouseObject["Others"] = 1;
       }
@@ -64,22 +64,22 @@ function Houses() {
     try {
       const response = await fetch(url);
       const jsonData = await response.json();
-      let housesObject = {};
+      const housesObject = {};
       jsonData.forEach((element) => {
         let { family } = element;
         family = cleanfamilyName(family);
 
         if (family in housesObject) {
-          housesObject[family] = housesObject[family] + 1;
+          housesObject[family] += 1;
         } else {
           housesObject[family] = 1;
         }
       });
-      housesObject = groupHouses(housesObject);
-      setHouseLabels(Object.keys(housesObject));
-      sethouseValues(Object.values(housesObject));
+      const newHousesObject = groupHouses(housesObject);
+      setHouseLabels(Object.keys(newHousesObject));
+      sethouseValues(Object.values(newHousesObject));
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
   useEffect(() => {
@@ -117,7 +117,7 @@ function Houses() {
     responsive: true,
   };
   return (
-    <div className="doughnutContainer">
+    <div className="container-donut-chart">
       <Doughnut
         data={data}
         aria-label="House Count Information"
