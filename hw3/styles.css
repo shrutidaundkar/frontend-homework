@@ -11,9 +11,74 @@ body {
 
 h1 {
   text-align: center;
+  font-weight: bolder;
 }
 
 .donut-chart {
   border-radius: 0.8rem;
   background-color: var(--white);
+}
+
+#characters-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-around;
+}
+li {
+  list-style-type: none;
+}
+.card {
+  flex: 1;
+  background-color: var(--cyan);
+  border: 0 none;
+  font-weight: bold;
+}
+.card:hover {
+  background-color: var(--blue);
+}
+
+.card-body {
+  padding: 0%;
+}
+@media screen {
+  #characters-container {
+    width: 100%;
+    padding: 20px;
+  }
+  .card {
+    min-width: 160px;
+    max-width: 170px;
+    min-height: 250px;
+    padding: 10px;
+  }
+  .card-img {
+    height: 200px;
+  }
+  .card span {
+    font-weight: bolder;
+    font-size: large;
+  }
+  .card p {
+    font-weight: bold;
+    font-size: small;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #characters {
+    width: 75%;
+    padding: 20px;
+  }
+  .card {
+    min-width: 290px;
+    padding: 20px;
+    margin: 1rem;
+  }
+  .card-img {
+    height: 290px;
+  }
+  .card span {
+    font-weight: bolder;
+    font-size: x-large;
+  }
 }
