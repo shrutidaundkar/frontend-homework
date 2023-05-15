@@ -2,7 +2,7 @@
   --black: #020202;
   --white: #ffffff;
   --blue: #00425c;
-  --cyan: #17a2b8;
+  --cyan: #4cacba;
 }
 body {
   margin: 0;
@@ -27,7 +27,6 @@ nav {
   background-color: var(--cyan);
   padding: 0%;
   width: 100%;
-
   position: absolute;
   right: 0;
   top: 0;
@@ -36,10 +35,8 @@ nav {
 nav h1 {
   display: inline-block;
   text-decoration: none;
-  color: var(--blue);
-  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff,
-    -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
-  font-size: xx-large;
+  color: var(--black);
+  font-size: 2rem;
   font-family: cursive;
   margin: 0 10px 0 0;
 }
@@ -48,13 +45,13 @@ nav a {
   text-decoration: none;
   padding: 5px;
   margin: auto;
-  color: var(--white);
-  font-size: x-large;
+  color: var(--black);
+  font-size: large;
   font-weight: bolder;
 }
 nav a.active {
-  text-decoration: underline;
-  color: var(--blue);
+  text-decoration: underline solid 3px;
+  font-size: larger;
 }
 .container-home {
   align-items: center;
@@ -78,18 +75,15 @@ nav a.active {
 }
 
 .container-donut-chart {
-  margin: auto;
   max-width: 600px;
   padding: 1% 5% 1% 5%;
 }
-.container {
-  margin-top: 2%;
-}
-.searchInput {
+.input-search-char {
   width: 80%;
   text-align: left;
   font-size: large;
   border: var(--cyan) solid;
+  display: inline-block;
 }
 
 #container-characters {
@@ -100,12 +94,11 @@ nav a.active {
 }
 .card {
   flex: 1;
-  background-color: var(--cyan);
   border: 0 none;
   font-weight: bold;
 }
 .card:hover {
-  background-color: var(--blue);
+  background-color: var(--cyan);
 }
 
 .card-body {
@@ -114,12 +107,15 @@ nav a.active {
 @media screen {
   .nav {
     width: 100%;
+    padding: 1%;
   }
   nav h1 {
-    font-size: large;
+    font-size: medium;
+    /* display: block; */
+    align-items: center;
   }
   nav a {
-    font-size: medium;
+    font-size: small;
   }
   #container-characters {
     width: 100%;
@@ -145,10 +141,17 @@ nav a.active {
     font-weight: bold;
     font-size: small;
   }
-  .searchInput {
+  .input-search-char {
     padding: 5px;
     height: 1rem;
     margin-left: 10px;
+  }
+  .input-search-label {
+    margin-top: 20%;
+    display: inline-block;
+  }
+  .container-donut-chart {
+    margin-top: 17%;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -173,9 +176,16 @@ nav a.active {
     font-size: x-large;
   }
 
-  .searchInput {
+  .input-search-char {
     padding: 10px;
     height: 2rem;
     margin-left: 20px;
+  }
+  .input-search-label {
+    margin-top: 5%;
+    display: inline-block;
+  }
+  .container-donut-chart {
+    margin: 4% auto auto auto;
   }
 }

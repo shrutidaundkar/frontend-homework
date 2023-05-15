@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <nav>
       <ul>
-        <h1>House of Dragons</h1>
+        <h1>HOUSE OF DRAGONS</h1>
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/search">Search</NavLink>
         <NavLink to="/houses">Houses</NavLink>

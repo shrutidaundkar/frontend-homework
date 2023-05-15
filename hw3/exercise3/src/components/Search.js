@@ -13,17 +13,17 @@ function Search() {
   return (
     <div class="container">
       <h2>
-        <label for="searchInput">
-          Search for Your Favorite "Game of Thrones" Character:
+        <label for="searchInput" className="input-search-label">
+          Search Character:
         </label>
+        <input
+          type="text"
+          id="searchInput"
+          className="input-search-char"
+          placeholder="Search Character here.."
+          onChange={(e) => setSearchedChar(e.target.value)}
+        />
       </h2>
-      <input
-        type="text"
-        id="searchInput"
-        className="searchInput"
-        placeholder="Search Character here.."
-        onChange={(e) => setSearchedChar(e.target.value)}
-      />
 
       <section id="container-characters" class="mx-auto">
         {charList
